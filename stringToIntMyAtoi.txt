@@ -1,0 +1,32 @@
+class Solution {
+
+
+    public int myAtoi(String s) {
+        //check for whitespace
+        int count = 0;
+        boolean neg = false;
+        boolean pos = true;
+        String num = "";
+        while(s.charAt(count) == ' ') {
+            count++;
+        }
+        if(s.charAt(count) == '-') {
+            neg = true;
+            count++;
+        } 
+
+        for(int i = count; i<s.length(); i++) {
+            if(Character.isDigit(s.charAt(i))) {
+                num += s.charAt(i);
+            }
+        }
+        
+        int ans = Integer.parseInt(num);
+        if(neg){ 
+            ans = -ans; 
+            return ans;}
+        if(pos){
+            return ans;}
+        return 0;
+    }
+}
